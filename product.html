@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="./fontawesome拷貝/css/all.css">
+    <link rel="stylesheet" href="./product.css">
+</head>
+<body>
+    <!-- -------------nav------------ -->
+    <div class="topbar-fixed"></div>
+    <div class="topbar"></div>
+    <nav>
+        <div class="nav-logo jcontainer jalign-items-center">
+            <div class="nav3 jjustify-content-center jalign-items-center">
+                <div class="nav-search jjustify-content-flex-end jalign-items-center">
+                    <p class="jalign-items-center">您希望尋找什麼產品</p>
+                    <i class="fas fa-search"></i>
+                </div>
+                <i class="search fas fa-search"></i>
+            </div>
+            <div class="nav3 jjustify-content-center">
+                <div class="logo-black">
+                    <img src="./images/LOGO-black.svg" alt="">
+                </div>
+            </div>
+            <div class="nav3 jjustify-content-center jalign-items-center">
+                <i class="fas fa-shopping-bag"></i>
+                <i class="fas fa-user-alt"></i>
+            </div>
+        </div>
+    </nav>
+    <div class="navheighbox"></div>
+    <div class="subnav">
+        <div class="jcontainer jjustify-content-center">
+            <a class="jalign-items-center" href="./about.html">關於我們</a>
+            <a class="jalign-items-center" href="./index.html">新品上市</a>
+            <a class="jalign-items-center nav-a-active" href="./allproduct.html">所有香水</a>
+        </div>
+    </div> 
+    <div class="navsubheighbox"></div>  
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="crossorigin="anonymous">
+</script> 
+<script>
+    let lastScroll = 0;
+            $(window).scroll(function(){
+                const winScrollTop = $(window).scrollTop();
+                // console.log('winScrollTop:',winScrollTop);
+                const heroSection = 50;
+                const heroSectionSub = heroSection-300;
+                if(winScrollTop > heroSectionSub){
+                    $('.subnav').addClass('navsub-hide');
+                }
+                if(winScrollTop > heroSection ){
+                    $('nav').addClass('nav-hide');
+                }
+                if(lastScroll > winScrollTop){        //scroll down
+                    $('nav').addClass('nav-add').removeClass('nav-hide');
+                    $('.subnav').addClass('navsub-add').removeClass('navsub-hide');
+                }
+                if(lastScroll < winScrollTop){        //scroll up
+                    $('.subnav').removeClass('navsub-add');
+                }
+                lastScroll = winScrollTop;
+            });
+            //   ------------------nav-a-active-----------------
+            $('.subnav a').click(function(){
+                $(this).addClass('nav-a-active').siblings().removeClass('nav-a-active');
+            })
+</script>
+</body>
+</html>
